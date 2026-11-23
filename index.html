@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MarginProof Takeoff — Bauplan-Mengenermittlung, LV-Kalkulator &amp; § 2 VOB/B Nachträge</title>
+  <meta name="description" content="Saubere Mengenermittlung (m2/lfm/Stk), Verschnitt- &amp; Gemeinkostenzuschläge sowie Nachtrags-Plausibilisierung nach § 2 VOB/B lokal." />
+  <link rel="canonical" href="https://cheresonanz-design.github.io/veritakt-bauplan-takeoff/" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MarginProof Takeoff", "applicationCategory": "BusinessApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "url": "https://cheresonanz-design.github.io/veritakt-bauplan-takeoff/"}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand-mark" href="index.html"><span>MarginProof Takeoff</span><span class="brand-badge">AUFMASS · LV · NACHTRÄGE</span></a>
+      <nav class="nav-links" aria-label="Hauptnavigation"><a href="index.html" class="active">Aufmaß &amp; LV Check</a>
+<a href="mengen-lv-rechner/" class="">Mengen &amp; LV</a>
+<a href="zuschlag-deckungsbeitrag/" class="">Zuschläge</a>
+<a href="nachtrags-pruefer/" class="">Nachträge</a>
+<a href="pro/" class="">Kit &amp; Rollout</a>
+<a href="legal/" class="">Impressum</a><a href="pro/" class="nav-cta">49 EUR Kit</a></nav>
+    </div>
+  </header>
+  
+  <section class="hero"><div class="container"><h1>Bauplan-Mengenermittlung &amp; LV-Kalkulator (100 % lokal)</h1><p>Erkennen Sie fehlende Verschnittzuschläge, unterkalkulierte Lohnansätze und lukrative § 2 Abs. 5/6 VOB/B Nachtragspotenziale direkt vor LV-Abgabe.</p></div></section>
+  <main class="container">
+    <div class="card">
+      <div class="btn-row" style="margin-top:0;margin-bottom:14px;">
+        <button type="button" class="btn" id="sample1Btn">Demo: Trockenbau-Los (Verschnitt vergessen + Nachtrag)</button>
+        <button type="button" class="btn" id="sample2Btn">Demo: Kalkulation Abgabefertig</button>
+        <button type="button" class="btn" id="sample3Btn">Demo: TGA Rohrsystem Mengenabweichung</button>
+      </div>
+      <div class="form-grid">
+        <div><label for="profileInput">Bauvorhaben / Gewerk</label><input type="text" id="profileInput" /></div>
+        <div><label for="modeSelect">Gewerk-Schwerpunkt</label><select id="modeSelect"><option value="trockenbau">Trockenbau / Ausbau</option><option value="rohbau">Rohbau / Tiefbau / Beton</option><option value="tga">TGA / Elektro / Heizung</option></select></div>
+        <div><label for="toneSelect">Ausgabe</label><select id="toneSelect"><option value="executive">Interne Kalkulationsprüfung</option><option value="streng">§ 2 Abs. 6 VOB/B Nachtrags-Anzeige</option></select></div>
+      </div>
+      <div class="btn-row"><button type="button" class="btn btn-primary" id="runCheckBtn">LV &amp; Nachtrag berechnen</button></div>
+    </div>
+
+    <div id="resultCard" class="card hidden">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+        <h2 id="resultHeadline" style="margin:0;">Ergebnis</h2>
+        <div class="btn-row" style="margin:0;">
+          <button type="button" class="btn btn-primary" id="copyActionBtn">Maßnahmentext kopieren</button>
+          <button type="button" class="btn" id="dlCsvBtn">CSV Export (.csv)</button>
+          <button type="button" class="btn" id="dlJsonBtn">JSON Audit (.json)</button>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-box"><div class="kpi-label">Kalkulations-Sicherheit</div><div class="kpi-val" id="kpi1Val">-</div></div>
+        <div class="kpi-box"><div class="kpi-label">Under-Priced / Nachträge</div><div class="kpi-val" id="kpi2Val">-</div></div>
+        <div class="kpi-box"><div class="kpi-label">Margen-Schutz / Los</div><div class="kpi-val" id="kpi3Val">-</div></div>
+        <div class="kpi-box"><div class="kpi-label">Jahres-Rohgewinn-Schutz</div><div class="kpi-val" id="kpi4Val">-</div></div>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>ID</th><th>Position &amp; Kategorie</th><th>Kennzahl</th><th>Effekt</th><th>Status</th><th>Prüfhinweis</th></tr></thead><tbody id="entriesBody"></tbody></table></div>
+      <h3>Kalkulations- &amp; § 2 VOB/B Nachtrags-Anzeige</h3>
+      <textarea id="actionBox" readonly aria-label="Maßnahmentext"></textarea>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="offer-card highlight"><div><span class="badge badge-pass">MP-BAU-01 · 49 EUR</span><h3>MarginProof Takeoff &amp; Bau-Kalkulations Bundle</h3><div class="offer-price">49 EUR</div><p class="muted">Preis-, Zuschlag-, Aufmaß- &amp; Nachtrags-Excel-Bundle inklusive Praxisguide sofort über unseren Live MarginProof Payhip Checkout.</p></div><div class="btn-row"><a href="https://payhip.com/b/RHu6N" class="btn btn-primary">49 EUR Kit bestellen</a><a href="pro/" class="btn">Details</a></div></div>
+      <div class="offer-card"><div><span class="badge badge-warn">MP-BAU-ROLLOUT · 3500 EUR</span><h3>MarginProof Bau-Kalkulation &amp; Nachtrags-OS Rollout</h3><div class="offer-price">3500 EUR</div><p class="muted">Einrichtung Ihrer gewerkespezifischen Zuschlagskalkulation, GAEB/CSV-Prüfregeln &amp; Nachtrags-SOP.</p></div><div class="btn-row"><a href="https://buy.stripe.com/fZu6oAfQReQu7Hy0IN24003" class="btn btn-dark">3500 EUR Rollout buchen</a><a href="pro/" class="btn">Umfang</a></div></div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p><strong>MarginProof Takeoff</strong> — Saubere Mengenermittlung (m2/lfm/Stk), Verschnitt- &amp; Gemeinkostenzuschläge sowie Nachtrags-Plausibilisierung nach § 2 VOB/B lokal.</p>
+      <p>Che Goncalves Menendez · MarginProof · by VeriTakt Collective (Gewerbe: ImportKlar) · Liegnitzstr. 53A, 28237 Bremen, Deutschland · Umsatzsteuerbefreit gemäß § 19 UStG (Kleinunternehmerregelung)</p>
+      <p><a href="legal/">Impressum &amp; DSGVO</a> · <a href="pro/">49 EUR Kit &amp; 3500 EUR Rollout</a> · <a href="https://cheresonanz-design.github.io/opskanon-directory/" target="_blank" rel="noopener">Gelistet auf OpsKanon</a></p>
+    </div>
+  </footer>
+  <script src="assets/bau_takeoff_engine.js"></script><script src="assets/app.js"></script>
+</body>
+</html>

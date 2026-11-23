@@ -1,0 +1,6 @@
+# MarginProof Takeoff (by VeriTakt Collective)
+> Saubere Mengenermittlung (m2/lfm/Stk), Verschnitt- & Gemeinkostenzuschläge sowie Nachtrags-Plausibilisierung nach § 2 VOB/B lokal.
+
+- App: https://cheresonanz-design.github.io/veritakt-bauplan-takeoff/
+- Offers: https://cheresonanz-design.github.io/veritakt-bauplan-takeoff/pro/
+- Legal: https://cheresonanz-design.github.io/veritakt-bauplan-takeoff/legal/
